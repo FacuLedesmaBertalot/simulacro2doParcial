@@ -37,4 +37,13 @@ class MotoImportada extends Moto{
         return $precioVenta;
     }
 
+
+    // __toString
+    public function __toString()
+    {
+        return "\nPaís de Origen: " .$this->getPaisOrigen().
+        ".\nImpuesto de Importación: " .$this->getImpuestoDeImportacion().
+        ".\n";
+    }
+
 }

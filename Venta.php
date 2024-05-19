@@ -2,27 +2,19 @@
 
 class Venta {
 
-    private $objCliente;
     private $objMotos;
 
-    public function __construct($objCliente, $objMotos)
+    public function __construct($objMotos)
     {
-        $this->objCliente = $objCliente;
         $this->objMotos = $objMotos;
     }
 
-    // Getters
-    public function getObjCliente() {
-        return $this->objCliente;
-    }
+    // Getter
     public function getObjMotos() {
         return $this->objMotos;
     }
 
-    // Setters
-    public function setObjCliente($objCliente) {
-        $this->objCliente = $objCliente;
-    }
+    // Setter
     public function setObjMotos($objMotos) {
         $this->objMotos = $objMotos;
     }
@@ -56,6 +48,19 @@ class Venta {
         return $motosImportadas;
     }
 
+
+
+    //__toString
+    public function __toString()
+    {
+        $cadena = "";
+        $motos = $this->getObjMotos();
+
+        for($i = 0 ; $i < count($motos) ; $i++) {
+            $cadena = $cadena ."Moto n° " .$i. ":\n".$motos[$i]."\n---\n";
+        }
+        return $cadena;
+    }
 
 
 }

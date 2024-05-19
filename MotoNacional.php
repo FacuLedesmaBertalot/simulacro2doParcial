@@ -8,7 +8,7 @@ class MotoNacional extends Moto{
     {
         parent:: __construct($codigo, $costo, $anioFabricacion, $descripcion, $porcIncrAnual, $activo);
 
-        $this->descuento = $descuento;
+        $this->descuento = 15;
     }
 
     // Getter

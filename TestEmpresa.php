@@ -7,14 +7,6 @@ include_once 'MotoImportada.php';
 include_once 'MotoNacional.php';
 include_once 'Venta.php';
 
-function mostrarDatosColeccion($unaColeccion) {
-    echo " --- Ventas Importadas --- " . "\n";
-    foreach ($unaColeccion as $unElemento) {
-        echo $unElemento . "\n";
-    }
-    echo " --- Ventas Importadas --- " . "\n";
-}
-
 
 $objCliente1 = new Cliente("Juan", "Aldavo", true, "DNI", 41524735);
 $objCliente2 = new Cliente("Lucia", "Jerem", false, "DNI", 40587632);
@@ -55,19 +47,14 @@ if ($resp > 0) {
 $ventasImportadas = $objEmpresa->informarVentasImportadas();
 echo "Ventas con Motos Importadas:\n";
 
-if (!empty($ventasImportadas)) {
+
     foreach ($ventasImportadas as $venta) {
-        if (!empty($venta->retornarMotosImportadas())) { // Verificar si la venta tiene motos importadas
-            echo $venta . "\n";
-        }
+        echo $venta . "\n";
     }
-} else {
-    echo "Ninguna.\n";
-}
 
 
 // Punto 8: Invocar al método informarSumaVentasNacionales() y visualizar el resultado
-echo "Total Ventas Nacionales: " . $objEmpresa->informarSumaVentasNacionales() . "\n";
+ echo "Total Ventas Nacionales: " . $objEmpresa->informarSumaVentasNacionales() . "\n";
 
 
 

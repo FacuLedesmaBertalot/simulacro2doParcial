@@ -81,7 +81,7 @@ class Venta {
         $motos = $this->getObjMotos();
 
         for($i = 0 ; $i < count($motos) ; $i++) {
-            $cadena = $cadena ."Moto n° " .$i. ":\n".$motos[$i]."\n---\n";
+            $cadena = $cadena ."Moto n° " .($i+1). ":\n".$motos[$i]."\n---\n";
         }
         return $cadena;
     }

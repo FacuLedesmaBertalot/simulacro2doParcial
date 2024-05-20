@@ -51,9 +51,27 @@ if ($resp > 0) {
     echo "La venta no pudo realizarse.\n";
 }
 
+// Punto 7: Invocar al método informarVentasImportadas() y visualizar el resultado
+$ventasImportadas = $objEmpresa->informarVentasImportadas();
+echo "Ventas con Motos Importadas:\n";
+foreach ($ventasImportadas as $venta) {
+    if ($ventasImportadas > 0) {
+        echo "Ninguna.\n";
+    } else {
+        echo mostrarDatosColeccion($venta) . "\n";
+    }
+
+}
 
 
-// echo $objEmpresa ."\n";
+// Punto 8: Invocar al método informarSumaVentasNacionales() y visualizar el resultado
+echo "Total Ventas Nacionales: " . $objEmpresa->informarSumaVentasNacionales() . "\n";
+
+
+
+
+// Punto 9: Realizar un echo de la variable Empresa creada en 2
+echo $objEmpresa;
 
 
 ?>

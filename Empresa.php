@@ -143,9 +143,10 @@ class Empresa
         $ventas = $this->getObjVentas();
 
         foreach ($ventas as $venta) {
-            if (count($venta->retornarMotosImportadas()) > 0) {
+            $motosImportadas = $venta->retornarMotosImportadas();
+            if (!empty($motosImportadas)) {
 
-                array_push($ventasImportadas, $venta);
+                $ventasImportadas[] = $venta;
             }
         }
         return $ventasImportadas;

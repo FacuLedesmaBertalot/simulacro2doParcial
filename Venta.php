@@ -65,7 +65,7 @@ class Venta {
         $arrayMotos = $this->getObjMotos();
 
         foreach ($arrayMotos as $moto) {
-            if (!is_a($moto, 'MotoNacional')) {
+            if (is_a($moto, 'MotoImportada')) {
                 $motosImportadas[] = $moto;
             }
         }

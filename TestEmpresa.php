@@ -56,9 +56,9 @@ $ventasImportadas = $objEmpresa->informarVentasImportadas();
 echo "Ventas con Motos Importadas:\n";
 foreach ($ventasImportadas as $venta) {
     if ($ventasImportadas > 0) {
-        echo "Ninguna.\n";
+        echo mostrarDatosColeccion($venta). "\n";
     } else {
-        echo mostrarDatosColeccion($venta) . "\n";
+        echo "Ninguna.\n";
     }
 
 }

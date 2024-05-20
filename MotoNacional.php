@@ -4,11 +4,11 @@ class MotoNacional extends Moto{
 
     private $descuento;
 
-    public function __construct($codigo, $costo, $anioFabricacion, $descripcion, $porcIncrAnual, $activo, $descuento)
+    public function __construct($codigo, $costo, $anioFabricacion, $descripcion, $porcIncrAnual, $activo, $descuento = 15)
     {
         parent:: __construct($codigo, $costo, $anioFabricacion, $descripcion, $porcIncrAnual, $activo);
 
-        $this->descuento = 15;
+        $this->setDescuento($descuento);
     }
 
     // Getter

@@ -41,9 +41,11 @@ class MotoImportada extends Moto{
     // __toString
     public function __toString()
     {
-        return "\nPaís de Origen: " .$this->getPaisOrigen().
+        $cadena = parent:: __toString();
+        $cadena .= "\nPaís de Origen: " .$this->getPaisOrigen().
         ".\nImpuesto de Importación: " .$this->getImpuestoDeImportacion().
         ".\n";
+        return $cadena;
     }
 
 }

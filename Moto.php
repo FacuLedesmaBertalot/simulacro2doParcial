@@ -65,7 +65,7 @@ class Moto{
 
         if ($this->getActivo() == false) {
             $precio = -1;
-            
+
         } else {
             $costoBase = $this->getCosto();
             $anioActual = intval(date("Y"));
@@ -75,20 +75,6 @@ class Moto{
 
         return $precio;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

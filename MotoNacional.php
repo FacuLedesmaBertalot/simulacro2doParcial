@@ -36,8 +36,10 @@ class MotoNacional extends Moto{
     // __toString
     public function __toString()
     {
-        return "\nDescuento: %" .$this->getDescuento().
+        $cadena = parent:: __toString();
+        $cadena .= "\nDescuento: %" .$this->getDescuento().
         ".\n";
+        return $cadena;
     }
 
 

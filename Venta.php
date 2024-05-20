@@ -3,21 +3,45 @@
 class Venta {
 
     private $objMotos;
+    private $precioFinal;
 
-    public function __construct($objMotos)
+    public function __construct($objMotos, $precioFinal)
     {
         $this->objMotos = $objMotos;
+        $this->precioFinal = $precioFinal;
     }
 
-    // Getter
+    // Getters
     public function getObjMotos() {
         return $this->objMotos;
     }
+    public function getPrecioFinal() {
+        return $this->precioFinal;
+    }
 
-    // Setter
+    // Setters
     public function setObjMotos($objMotos) {
         $this->objMotos = $objMotos;
     }
+    public function setPrecioFinal($precioFinal) {
+        $this->precioFinal = $precioFinal;
+    }
+
+
+        // Método que incorpora una moto a la venta 
+        public function incorporarMoto($objMoto) {
+
+            if ($objMoto->getActivo()) {
+                $colMotosCopia = $this->getObjMotos();
+                array_push($colMotosCopia, $objMoto);
+                $this->setObjMotos($colMotosCopia);
+    
+                $precioMoto = $objMoto->darPrecioVenta();
+                $precioFinalCopia = $this->getPrecioFinal();
+                $precioFinalCopia = $precioFinalCopia + $precioMoto;
+                $this->setPrecioFinal($precioFinalCopia);
+            }
+        }
 
     
     // Método que retorna la sumatoria del precio venta de cada una de las motos nacionales vinculadas a la venta

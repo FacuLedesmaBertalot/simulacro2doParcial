@@ -1,39 +1,65 @@
 <?php
 
 class Cliente{
-    // Atributos
-    private $tipoDoc;
-    private $numDoc;
 
-    public function __construct($tipoDoc, $numDoc)
+    // Atributos
+    private $nombre;
+    private $apellido;
+    private $estado;
+    private $tipoDocumento;
+    private $DNI;
+
+    public function __construct($nombre, $apellido, $estado, $tipoDocumento, $DNI)
     {
-        $this->tipoDoc = $tipoDoc;
-        $this->numDoc = $numDoc;
+        $this->nombre = $nombre;
+        $this->apellido = $apellido;
+        $this->estado = $estado;
+        $this->tipoDocumento = $tipoDocumento;
+        $this->DNI = $DNI;
     }
+
 
     // Getters
-    public function getTipoDoc(){
-        return $this->tipoDoc;
+    public function getNombre() {
+        return $this->nombre;
     }
-    public function getNumDoc(){
-        return $this->numDoc;
+    public function getApellido() {
+        return $this->apellido;
+    }
+    public function getEstado() {
+        return $this->estado;
+    }
+    public function getTipoDocumento() {
+        return $this->tipoDocumento;
+    }
+    public function getDNI() {
+        return $this->DNI;
     }
 
     // Setters
-    public function setTipoDoc($tipoDoc) {
-        $this->tipoDoc = $tipoDoc;
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
     }
-    public function setNumDoc($numDoc) {
-        $this->numDoc = $numDoc;
+    public function setApellido($apellido) {
+        $this->apellido = $apellido;
+    }
+    public function setEstado($estado) {
+        $this->estado = $estado;
+    }
+    public function setTipoDocumento($tipoDocumento) {
+        $this->tipoDocumento = $tipoDocumento;
+    }
+    public function setDNI($DNI) {
+        $this->DNI = $DNI;
     }
 
-    //__toString
+
+    // __toString
     public function __toString()
     {
-        return "Tipo de Documento: " .$this->getTipoDoc(). 
-        ".\nNúmero de Documento: " .$this->getNumDoc().
-        ".\n";
+        $estado = $this->getEstado() ? "Activo" : "Dado de Baja";
+        return "\nNombre: " .$this->getNombre(). ".\nApellido: " .$this->getApellido(). "\nEstado: " .$estado. ".\nTipo Documento: " .$this->getTipoDocumento(). ".\nNúmero de Documento: " .$this->getDNI(). ".\n";
     }
-}
 
+}
 ?>

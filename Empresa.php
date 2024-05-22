@@ -144,7 +144,7 @@ class Empresa
 
         foreach ($ventas as $venta) {
             $motosImportadas = $venta->retornarMotosImportadas();
-            if (!empty($motosImportadas)) {
+            if (count($motosImportadas) > 0) {
 
                 $ventasImportadas[] = $venta;
             }

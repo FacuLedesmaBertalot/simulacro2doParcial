@@ -26,8 +26,11 @@ class MotoNacional extends Moto{
     {
         $precioVenta = parent::darPrecioVenta();
         $descuento = $this->getDescuento();
-        $precioVenta = $precioVenta - ($precioVenta * $descuento / 100);
-
+        
+        if ($precioVenta != -1) {
+            $precioVenta = $precioVenta - ($precioVenta * $descuento / 100);
+        }
+    
         return $precioVenta;
     }
 

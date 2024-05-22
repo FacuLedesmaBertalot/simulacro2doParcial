@@ -32,7 +32,9 @@ class MotoImportada extends Moto{
     public function darPrecioVenta()
     {
         $precioVenta = parent::darPrecioVenta();
-        $precioVenta = $precioVenta + $this->getImpuestoDeImportacion();
+        if ($precioVenta != -1) {
+            $precioVenta = $precioVenta + $this->getImpuestoDeImportacion();
+        }         
 
         return $precioVenta;
     }

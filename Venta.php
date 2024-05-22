@@ -51,8 +51,11 @@ class Venta {
 
         foreach ($arrayMotos as $moto) {
 
-            if (is_a($moto, 'MotoNacional')) {
-                $total += $moto->darPrecioVenta();
+            if ($moto instanceof MotoNacional) {
+
+                if($moto->darPrecioVenta() > 0) {
+                    $total += $moto->darPrecioVenta();
+                }  
             } 
         }
         return $total;
@@ -65,7 +68,7 @@ class Venta {
         $arrayMotos = $this->getObjMotos();
 
         foreach ($arrayMotos as $moto) {
-            if (is_a($moto, 'MotoImportada')) {
+            if ($moto instanceof MotoImportada) {
                 $motosImportadas[] = $moto;
             }
         }

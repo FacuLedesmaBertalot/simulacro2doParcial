@@ -35,7 +35,6 @@ class MotoNacional extends Moto{
     }
 
 
-
     // __toString
     public function __toString()
     {
@@ -44,6 +43,4 @@ class MotoNacional extends Moto{
         ".\n";
         return $cadena;
     }
-
-
 }

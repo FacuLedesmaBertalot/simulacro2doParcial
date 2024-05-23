@@ -3,7 +3,6 @@
 class Empresa
 {
 
-
     // Atributos
     private $denominacion;
     private $direccion;
@@ -67,19 +66,20 @@ class Empresa
     }
 
 
-        /**
-    * Metodo registrarVenta($colCodigosMoto, $objCliente) metodo que recibe por parametro una coleccion de codigos de motos, la cual es recorrida, y por cada elemento de la coleccion la instancia Venta que debe ser creada. Recordar que no todos los clientes ni todas las motos, estan disponibles para registrar una venta en un momento determinado.
-    * El metodo debe setear los variables instancias de venta que corresponda y retornar el importe final de la venta.
-    * 
-    * @param array $colCodigosMoto
-    * @param Cliente $objCliente
-    * @return float
-    */
-    public function registrarVenta($colCodigosMoto, $objCliente) {
+    /**
+     * Metodo registrarVenta($colCodigosMoto, $objCliente) metodo que recibe por parametro una coleccion de codigos de motos, la cual es recorrida, y por cada elemento de la coleccion la instancia Venta que debe ser creada. Recordar que no todos los clientes ni todas las motos, estan disponibles para registrar una venta en un momento determinado.
+     * El metodo debe setear los variables instancias de venta que corresponda y retornar el importe final de la venta.
+     * 
+     * @param array $colCodigosMoto
+     * @param Cliente $objCliente
+     * @return float
+     */
+    public function registrarVenta($colCodigosMoto, $objCliente)
+    {
 
         $importeFinal = 0;
 
-        if ($objCliente->getEstado() == true ) {
+        if ($objCliente->getEstado() == true) {
             $motosAVender = [];
             $copiaColVentas = $this->getObjVentas();
             $nuevaVenta = new Venta($motosAVender, 0);
@@ -100,26 +100,22 @@ class Empresa
         return $importeFinal;
     }
 
-        // Método que recorre la colección de motos de la Empresa y retorna la referencia al objeto Moto cuyo código coincide con el recibido por parámetro
-        public function retornarMoto($codigoMoto) {
-            //boolean $motoEncontrada
-            //int $i
-            //array $motoObtenida
-            $motoObtenida = null;
-            $i = 0;
-            $motoEncontrada = false;
-            $colMotos = $this->getColMotos();
-    
-            while ($i < count($colMotos) && !$motoEncontrada) {
-    
-                if ($colMotos[$i]->getCodigo() == $codigoMoto) {
-                    $motoObtenida = $colMotos[$i];
-                    $motoEncontrada = true;
-                }
-                $i++;
+    // Método que recorre la colección de motos de la Empresa y retorna la referencia al objeto Moto cuyo código coincide con el recibido por parámetro
+    public function retornarMoto($codigoMoto)
+    {
+        $i = 0;
+        $objMoto = null;
+        $colMotos = $this->getColMotos();
+
+        while ($i < count($colMotos) && $objMoto == null) {
+
+            if ($colMotos[$i]->getCodigo() == $codigoMoto) {
+                $objMoto = $colMotos[$i];
             }
-            return $motoObtenida;
+            $i++;
         }
+        return $objMoto;
+    }
 
 
     // Método que recorre la colección de ventas realizadas por la empresa y retorna el importe total de ventas Nacionales realizadas por la empresa
@@ -152,26 +148,25 @@ class Empresa
         return $ventasImportadas;
     }
 
-        // Retornar cadena
-        public function retornarCadenaDesdeColeccion($coleccion) {
-            $cadena = "";
-            foreach ($coleccion as $unElementoCol) {
-                $cadena .= " " . $unElementoCol . "\n";
-            }
-            return $cadena;
+    // Retornar cadena
+    public function retornarCadenaDesdeColeccion($coleccion)
+    {
+        $cadena = "";
+        foreach ($coleccion as $unElementoCol) {
+            $cadena .= " " . $unElementoCol . "\n";
         }
-        // __toString
-        public function __toString()
-        {
-            $cadena = "\nDenominacion: " .$this->getDenominacion(). "\n";
-            $cadena = $cadena ."\nDireccion: " .$this->getDireccion(). "\n";
-    
-            $cadena = $cadena ."\n------- Coleccion de Clientes: -------\n" . $this->retornarCadenaDesdeColeccion($this->getColClientes())."\n";
-            $cadena = $cadena ."\n------- Coleccion de Motos: -------\n" . $this->retornarCadenaDesdeColeccion($this->getColMotos())."\n";
-            $cadena = $cadena ."\n------- Coleccion de Ventas: -------\n" . $this->retornarCadenaDesdeColeccion($this->getObjVentas())."\n";
-    
-            return $cadena;
-        }
-        
+        return $cadena;
     }
+    // __toString
+    public function __toString()
+    {
+        $cadena = "\nDenominacion: " . $this->getDenominacion() . "\n";
+        $cadena = $cadena . "\nDireccion: " . $this->getDireccion() . "\n";
 
+        $cadena = $cadena . "\n------- Coleccion de Clientes: -------\n" . $this->retornarCadenaDesdeColeccion($this->getColClientes()) . "\n";
+        $cadena = $cadena . "\n------- Coleccion de Motos: -------\n" . $this->retornarCadenaDesdeColeccion($this->getColMotos()) . "\n";
+        $cadena = $cadena . "\n------- Coleccion de Ventas: -------\n" . $this->retornarCadenaDesdeColeccion($this->getObjVentas()) . "\n";
+
+        return $cadena;
+    }
+}
